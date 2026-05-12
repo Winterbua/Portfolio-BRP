@@ -1,0 +1,17 @@
+#header {
+    padding: 20px;
+    background-color: black;
+}
+
+.links {
+    text-align: right;
+}
+
+body {
+    background-color: aliceblue;
+}
+
+#footer {
+    text-decoration: none white;
+    background-color: black;
+}
