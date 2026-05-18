@@ -8,20 +8,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="header">
-        <a href="index.php">Startseite</a>
-        <a href="blog.php" class="links">Projekte</a>
-        <a href="download.php" class="links">Download</a>
-        <a href="kontakt.php" class="links">Kontakt</a>
-    </div>
+    <?php
+        include("navbar.php");
+    ?>
     <div id="body">
-        <h1>Manuel Mayr</h1>
-        <p>Fachschul Absolvent</p>
-        <a href=""></a>
+        <h1>Manuel Mayr -<br> Fachschul Absolvent</h1>
+        <p>Ich bin ein begeisterter Tech-Enthusiast der sehr viel Wert darauf legt, sauber und effizient zu arbeiten.
+           Auf den Untenstehenden Knöpfen kann man meine Werke und meinen Lebenslauf herunterladen.
+        </p>
+        <a class="download-button" href="download.php">Dateien herunterladen</a>
     </div>
-    <div id="footer">
-        <a href="impressum.php">Impressum</a>
-        <a href="datenschutz.php">Datenschutz</a>
-    </div>
+    <?php
+        include("footer.php");
+    ?>
 </body>
 </html>
