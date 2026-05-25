@@ -11,7 +11,7 @@
     <?php
         include("navbar.php");
     ?>
-    <div  id="body-ik">
+    <div  id="body">
 
             <h2>Preview of Your Contact Us Page</h2>
                     <h2>Contact Us</h2>
@@ -29,7 +29,7 @@
 
             <p><b>Don't hesitate to contact us:</b> </p>
                                         
-                    <p><strong>Email:</strong> <a href="mailto:mayr.manuel29@gmail.com">mayr.manuel29@gmail.com</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:mayr.manuel29@gmail.com" style="color: white">mayr.manuel29@gmail.com</a></p>
                     
                     
                     <p>We look forward to assisting you! Thank you for being a part of our community and helping us grow! </p>

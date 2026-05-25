@@ -1,130 +1,406 @@
+/* =========================
+   GLOBAL
+========================= */
+
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
-    background-image: url('img/5651999.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    color: white;
+    margin: 0;
     font-family: Arial, sans-serif;
-    font-size: x-large;
+    color: #f2f2f2;
 
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 
-    backdrop-filter: blur(5px);
+    /* background image */
+    background: url("img/trees-4830285.jpg") no-repeat center center fixed;
+    background-size: cover;
+
+    position: relative;
 }
 
-/* NAVBAR */
+/* =========================
+   DARK OVERLAY (STRONGER)
+========================= */
 
-#header {
-    width: 100%;
-    padding: 20px 40px;
-
-    display: flex;
-    justify-content: flex-end;
-    gap: 30px;
-
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(5px);
-
+body::before {
+    content: "";
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
+
+    background:
+        radial-gradient(circle at top, rgba(0,0,0,0.25), rgba(0,0,0,0.55)),
+        rgba(0,0,0,0.35);
+
+    z-index: -1;
 }
 
-#header a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-
-    transition: 0.3s;
-}
-
-#header a:hover {
-    color: #cccccc;
-}
-
-/* MAIN CONTENT */
+/* =========================
+   MAIN WRAPPER
+========================= */
 
 #body {
     flex: 1;
-
-    padding-left: 100px;
-    padding-top: 180px;
-
-    max-width: 700px;
+    padding: 40px 30px;
 }
 
-#body-ik {
-    flex: 1;
+/* =========================
+   NAVBAR (DARKER)
+========================= */
 
-    padding-left: 100px;
-    padding-top: 180px;
+#header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 
-    max-width: 1700px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    padding: 14px 20px;
+
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
-h1 {
-    font-size: 50px;
-    line-height: 1.2;
+#header a {
+    color: #eaeaea;
+    text-decoration: none;
 
-    margin-bottom: 20px;
+    padding: 10px 14px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    transition: 0.25s ease;
+
+    border: 1px solid transparent;
 }
 
-p {
-    line-height: 1.7;
-    margin-bottom: 30px;
+#header a:hover {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    transform: translateY(-2px);
 }
 
-/* DOWNLOAD BUTTON */
+/* =========================
+   FOOTER (DARKER)
+========================= */
+
+#footer {
+    margin-top: auto;
+
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    padding: 25px;
+
+    background: rgba(0,0,0,0.70);
+    backdrop-filter: blur(12px);
+
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+#footer a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+
+    font-size: 13px;
+
+    transition: 0.25s ease;
+}
+
+#footer a:hover {
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    max-width: 800px;
+    margin: 80px auto;
+}
+
+/* =========================
+   DOWNLOAD BUTTON
+========================= */
 
 .download-button {
     display: inline-block;
-    padding: 12px 24px;
 
-    color: white;
+    margin-top: 20px;
+    padding: 12px 20px;
+
+    color: #fff;
     text-decoration: none;
 
-    background: transparent;
-    border: 1px solid white;
-    border-radius: 5px;
+    border: 1px solid rgba(255,255,255,0.8);
+    border-radius: 8px;
 
-    transition: 0.3s;
+    background: transparent;
+
+    transition: all 0.25s ease;
+
+    font-size: 15px;
 }
 
 .download-button:hover {
     background: rgba(255,255,255,0.1);
+    transform: translateY(-2px);
+    border-color: #fff;
 }
 
-/* FOOTER */
+/* =========================
+   BLOG LIST
+========================= */
 
-#footer {
-    width: 100%;
-
-    padding: 20px 40px;
+.blog-list {
+    margin-bottom: 60px;
 
     display: flex;
-    justify-content: center;
-    gap: 30px;
-
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(5px);
+    flex-direction: column;
+    gap: 12px;
 }
 
-#footer a {
-    color: white;
+.blog-link {
+    color: #fff;
     text-decoration: none;
 
-    transition: 0.3s;
+    padding: 14px 18px;
+
+    border-radius: 8px;
+
+    background: rgba(0,0,0,0.35);
+
+    border: 1px solid rgba(255,255,255,0.10);
+
+    transition: 0.25s ease;
 }
 
-#footer a:hover {
-    color: #cccccc;
+.blog-link:hover {
+    background: rgba(0,0,0,0.55);
+    transform: translateX(5px);
+}
+
+/* =========================
+   BLOG POST
+========================= */
+
+.blog-post {
+    padding: 30px;
+
+    background: rgba(0,0,0,0.55);
+
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 10px;
+
+    backdrop-filter: blur(8px);
+}
+
+.blog-post h1 {
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+.blog-post p {
+    margin-bottom: 18px;
+    line-height: 1.7;
+    color: #dddddd;
+}
+
+.blog-post h3 {
+    color: #bdbdbd;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+/* =========================
+   ADMIN
+========================= */
+
+.admin-actions {
+    display: flex;
+    gap: 15px;
+    margin: 25px 0 40px;
+    flex-wrap: wrap;
+}
+
+.admin-button {
+    display: inline-block;
+
+    padding: 12px 18px;
+
+    color: #fff;
+    text-decoration: none;
+
+    background: rgba(0,0,0,0.35);
+
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 8px;
+
+    transition: 0.25s ease;
+}
+
+.admin-button:hover {
+    background: rgba(0,0,0,0.55);
+    transform: translateY(-2px);
+}
+
+.admin-blog-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.admin-blog-card {
+    padding: 25px;
+
+    background: rgba(0,0,0,0.55);
+
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 10px;
+
+    transition: 0.25s ease;
+}
+
+.admin-blog-card:hover {
+    transform: translateY(-3px);
+    background: rgba(0,0,0,0.65);
+}
+
+.admin-blog-card h2 {
+    margin-bottom: 12px;
+}
+
+.admin-blog-card p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #d0d0d0;
+}
+
+/* =========================
+   FORM
+========================= */
+
+.create-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    margin-top: 25px;
+    max-width: 800px;
+}
+
+.create-form input,
+.create-form textarea {
+    width: 100%;
+    padding: 14px;
+
+    font-size: 16px;
+
+    color: white;
+
+    background: rgba(0,0,0,0.35);
+
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+
+    outline: none;
+}
+
+.create-form textarea {
+    min-height: 280px;
+    resize: vertical;
+}
+
+.create-form input::placeholder,
+.create-form textarea::placeholder {
+    color: rgba(255,255,255,0.45);
+}
+
+.create-form button {
+    width: fit-content;
+
+    padding: 12px 18px;
+
+    color: white;
+
+    background: rgba(0,0,0,0.45);
+
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+.create-form button:hover {
+    background: rgba(0,0,0,0.65);
+    transform: translateY(-2px);
+}
+
+/* =========================
+   LAYOUT
+========================= */
+
+.blog-layout {
+    display: flex;
+    gap: 25px;
+}
+
+.blog-sidebar {
+    width: 260px;
+
+    position: sticky;
+    top: 100px;
+
+    padding: 18px;
+
+    background: rgba(0,0,0,0.45);
+
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 10px;
+}
+
+.blog-content {
+    flex: 1;
+
+    padding: 20px;
+
+    background: rgba(0,0,0,0.25);
+
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+    .blog-layout {
+        flex-direction: column;
+    }
+
+    .blog-sidebar {
+        width: 100%;
+        position: relative;
+        top: 0;
+    }
 }
