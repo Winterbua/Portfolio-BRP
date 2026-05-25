@@ -1,42 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="manuel mayr">
     <title>Kontakt</title>
     <link rel="stylesheet" href="style.css">
+
+    <script>
+        function validateForm() {
+            let name = document.forms["contactForm"]["name"].value;
+            let email = document.forms["contactForm"]["email"].value;
+            let message = document.forms["contactForm"]["message"].value;
+
+            // Name prüfen
+            if (name.trim() === "") {
+                alert("Bitte Namen eingeben.");
+                return false;
+            }
+
+            // E-Mail prüfen
+            let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (!email.match(emailPattern)) {
+                alert("Bitte gültige E-Mail eingeben.");
+                return false;
+            }
+
+            // Nachricht prüfen
+            if (message.trim().length < 10) {
+                alert("Die Nachricht muss mindestens 10 Zeichen lang sein.");
+                return false;
+            }
+
+            alert("Formular erfolgreich gesendet!");
+            return true;
+        }
+    </script>
 </head>
+
 <body>
-    <?php
-        include("navbar.php");
-    ?>
-    <div  id="body">
 
-            <h2>Preview of Your Contact Us Page</h2>
-                    <h2>Contact Us</h2>
-            <p>Welcome to <strong>www.website.at</strong>, We’re always eager to hear from you. Whether you want to share feedback, ask questions, or simply say hello, we’re here and ready to listen. At <strong>www.website.at</strong> our thoughts and suggestions help us grow, improve, and deliver a better experience.</p>
-            <p><b>You can contact us for any of the following:</b></p>
-            - <b>Website Feedback:</b> If you have any thoughts, opinions, or comments about our website, its design, or functionality, we would love to hear them. Your feedback helps us create a better user experience.<br />
-            - <b>Content Queries:</b> Have a question or concern about our content? Whether you’re looking for clarification or need more details on a particular topic, feel free to ask. We’re here to provide the information you need.<br />
-            - <b>Corrections or Updates:</b> If you come across any information in our posts that seems incorrect, outdated, or missing, let us know. We strive to provide accurate, up-to-date content, and your insights help us ensure we’re delivering the best.<br />
-            - <b>Design Suggestions:</b> Do you have ideas on how we can improve our website’s appearance or usability? Whether it's changing the theme, colors, or layout, we’d appreciate your thoughts.<br />
-            - <b>Improvement Suggestions:</b> We’re always looking for ways to improve <strong>www.website.at</strong>. If you have any suggestions to enhance our site, whether in terms of content, tools, or features, don’t hesitate to share. <br />
-            - <b>Technical Issues:</b> If you encounter any errors, bugs, or issues while using our site, please report them to us. We aim to provide a seamless experience, and your reports help us address problems quickly. <br />
-            Our contact us page is generated with the help of <a href="https://raptorkit.com/contact-us-page-generator/" style="color: #fcb600";>Contact Us Generator</a>.
+<?php
+    include("navbar.php");
+?>
 
-            <p>We welcome all your comments, suggestions, and concerns, as they help us make <strong>www.website.at</strong> a better platform for everyone.</p>
+<div id="body">
 
-            <p><b>Don't hesitate to contact us:</b> </p>
-                                        
-                    <p><strong>Email:</strong> <a href="mailto:mayr.manuel29@gmail.com" style="color: white">mayr.manuel29@gmail.com</a></p>
-                    
-                    
-                    <p>We look forward to assisting you! Thank you for being a part of our community and helping us grow! </p>
-                    
-    </div>
-    <?php
-        include("footer.php");
-    ?>
+    <h2>Kontaktdaten</h2>
+
+    <p>
+        <strong>E-Mail:</strong>
+        <a href="mailto:mayr.manuel29@gmail.com" style="color: white">
+            mayr.manuel29@gmail.com
+        </a>
+    </p>
+
+    <p>
+        <strong>Telefon:</strong>
+        +43 660 1234567
+    </p>
+
+    <p>
+        <strong>Adresse:</strong>
+        Haslach, Österreich
+    </p>
+
+    <h2>Social Media</h2>
+
+    <p>
+        <a href="https://www.facebook.com" target="_blank" style="color: white">
+            Facebook
+        </a>
+        |
+        <a href="https://www.instagram.com" target="_blank" style="color: white">
+            Instagram
+        </a>
+        |
+        <a href="https://www.twitter.com" target="_blank" style="color: white">
+            Twitter/X
+        </a>
+    </p>
+
+    <h2>Kontaktformular</h2>
+
+    <form name="contactForm" onsubmit="return validateForm()">
+
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="email">E-Mail:</label><br>
+        <input type="text" id="email" name="email"><br><br>
+
+        <label for="message">Nachricht:</label><br>
+        <textarea id="message" name="message" rows="5" cols="40"></textarea><br><br>
+
+        <input type="submit" value="Senden">
+
+    </form>
+
+</div>
+
+<?php
+    include("footer.php");
+?>
+
 </body>
 </html>
